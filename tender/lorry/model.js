@@ -6,7 +6,7 @@ const lorry= new Schema({
   phoneNumber:{type:Number,required:true},
   totalAmount:{type:Number,required:true},
   batha :{type:Number,required:true},
-  totalTons:{type:Number,required:true,default:0};
+  totalTons:{type:Number,required:true,default:0}
 })
 
 const LorryModel= mongoose.model('lorry',lorry);
