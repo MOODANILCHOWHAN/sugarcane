@@ -1,11 +1,17 @@
-import mongoose from 'mongoose';
-import {Schema} from 'mongoose';
-const gang= new Schema({
-  name:{type:String, required:true},
-  phoneNumber:{type:Number},
-  InitailAmount:{type:Number},
-  expensives:{type:Number},
-  gang: [{ type: Schema.Types.ObjectId, ref: 'Gang' }],
-})
-const gangDetails= mongoose.model('GangDetails',gang);
-export default gangDetails;
+// 
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
+
+const gangDetailsSchema = new Schema(
+  {
+    name: { type: String, required: true },
+    phoneNumber: { type: String },
+    initialAmount: { type: Number, default: 0 },
+    expenses: { type: Number, default: 0 },
+    gang: { type: Schema.Types.ObjectId, ref: "Gang" },
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("GangDetails", gangDetailsSchema);
