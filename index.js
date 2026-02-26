@@ -10,7 +10,7 @@ import router from './tender/tenders/tenderRouter.js';
 dotenv.config();
 
 const app = express();
-
+app.use(express.json());
 app.use(cors());
 console.log('Connecting to:', process.env.MONGO_URI);
 
