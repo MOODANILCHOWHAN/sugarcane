@@ -3,11 +3,15 @@ const { Schema } = mongoose;
 const gang = new Schema({
   name: { type: String, required: true },
   mukadam: { type: String, required: true },
-  phoneNumber: { type: Number, required: true, maxLength: 10, minLength: 10 },
-  totalAmount: { type: Number, required: true },
-  reason: { type: String },
-  pricePerTon: { type: String },
-  people: [{ type: Schema.Types.ObjectId, ref: 'GangDetails' }],
+  phoneNumber: { type: String, required: true },
+
+  ratePerTon: { type: Number, required: true },
+  advanceReceived: { type: Number, default: 0 },
+
+  totalTonsWorked: { type: Number, default: 0 },
+
+  members: [{ type: Schema.Types.ObjectId, ref: "GangDetails" }],
+  tender: { type: Schema.Types.ObjectId, ref: "Tender" }
 });
 
 const GangModel = mongoose.model('Gang', gang);
