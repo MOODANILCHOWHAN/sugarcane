@@ -7,8 +7,8 @@ const gang = new Schema({
   totalAmount: { type: Number, required: true },
   reason: { type: String },
   pricePerTon: { type: String },
-  people: [{ type: Schema.Types.ObjectId, ref: 'gangDetails' }],
+  people: [{ type: Schema.Types.ObjectId, ref: 'GangDetails' }],
 });
 
-const GangModel = mongoose.model('gang', gang);
+const GangModel = mongoose.model('Gang', gang);
 export default GangModel;

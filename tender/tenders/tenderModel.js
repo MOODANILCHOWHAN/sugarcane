@@ -4,10 +4,10 @@ const tender= new Schema({
 
   name:{type:String,required:true},
   phoneNo:{type:Number, required:true},
-  gangs:[{type: Schema.Types.ObjectId,ref:'gang'}],
-  lorrys:[{types:Schema.Types.ObjectId, ref:'lorry'}],
-  loads: [{types:Schema.Types.ObjectId, ref:'load'}]
+  gangs:[{type: Schema.Types.ObjectId,ref:"Gang"}],
+  lorrys:[{types:Schema.Types.ObjectId, ref: "Lorry"}],
+  loads: [{types:Schema.Types.ObjectId, ref:"Load"}]
 })
-const tenderModel = mongoose.model('tender',tender);
+const tenderModel = mongoose.model('Tender',tender);
 
 export default tenderModel;

@@ -5,7 +5,7 @@ const gang= new Schema({
   phoneNumber:{type:Number},
   InitailAmount:{type:Number},
   expensives:{type:Number},
-  gang: [{ type: Schema.Types.ObjectId, ref: 'gang' }],
+  gang: [{ type: Schema.Types.ObjectId, ref: 'Gang' }],
 })
-const gangDetails= mongoose.model('gangDetails',gang);
+const gangDetails= mongoose.model('GangDetails',gang);
 export default gangDetails;

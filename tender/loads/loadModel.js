@@ -5,8 +5,8 @@ import { Decimal128 } from 'bson';
 const load= new Schema({
 
   farmerName :{type:String,required:true},
-  gangName:{type:Schema.Types.ObjectId,ref:'gang'},
-  lorryDetails:{type:Schema.Types.ObjectId, ref:'lorry'},
+  gangName:{type:Schema.Types.ObjectId,ref:'Gang'},
+  lorryDetails:{type:Schema.Types.ObjectId, ref:'Lorry'},
   totalTons:{type:Number,required:true,default:0},
   kushi:{type:Number, required:true},
   pricePerTon:{type:Number,required:true},
@@ -15,6 +15,6 @@ const load= new Schema({
 
 })
 
-const loadModel= mongoose.model('load',load);
+const loadModel= mongoose.model('Load',load);
 
 export default loadModel;

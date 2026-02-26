@@ -9,5 +9,5 @@ const lorry= new Schema({
   totalTons:{type:Number,required:true,default:0}
 })
 
-const LorryModel= mongoose.model('lorry',lorry);
+const LorryModel= mongoose.model('Lorry',lorry);
 export default LorryModel;
