@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Schema from mongoose
+import {Schema} from 'mongoose'
 import { Decimal128 } from 'bson';
 
 const load= new Schema({

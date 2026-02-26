@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {Schema} from mongoose;
+import {Schema} from 'mongoose';
 const lorry= new Schema({
   name:{type:String,required:true},
   lorryNo:{type:String,required:true},

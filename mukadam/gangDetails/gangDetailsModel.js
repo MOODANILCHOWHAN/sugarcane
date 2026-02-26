@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {Schema} from mongoose
+import {Schema} from 'mongoose';
 const gang= new Schema({
   name:{type:String, required:true},
   phoneNumber:{type:Number},

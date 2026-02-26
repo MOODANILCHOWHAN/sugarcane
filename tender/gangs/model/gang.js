@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import { Schema } from 'mongoose';
 const gang = new Schema({
   name: { type: String, required: true },
   mukadam: { type: String, required: true },
