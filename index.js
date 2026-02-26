@@ -6,7 +6,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-
+import router from './tender/tenders/tenderRouter.js';
 dotenv.config();
 
 const app = express();
@@ -20,6 +20,8 @@ mongoose
   })
   .then(() => console.log('db connected'))
   .catch((err) => console.error('connection error:', err));
+
+  app.use('/',router)
 
 app.listen(4000, () => {
   console.log('server is running');
