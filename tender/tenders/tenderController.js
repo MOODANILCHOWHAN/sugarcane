@@ -7,7 +7,8 @@ const tenderController={
         await data.save();
         return res.status(200).json({message:"data saved",data:data})
         } catch (error) {
-            return res.status(500).json({message:"something went wrong"})
+            console.log(error)
+            return res.status(500).json({message:error})
         }
         
 
@@ -26,7 +27,8 @@ const tenderController={
 
             return res.status(200).json({data:data,message:"data"})
         } catch (error) {
-            
+            console.log(error)
+            return res.status(500).json({message:error})
         }
     }
 }
