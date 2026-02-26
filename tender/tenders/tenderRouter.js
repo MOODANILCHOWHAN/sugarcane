@@ -3,6 +3,6 @@ import { Router } from "express";
 
 const router= Router();
 
-router.post("/add",tenderController.addTender);
-
+router.post("/addTender",tenderController.addTender);
+router.get("/getTender/:id",tenderController.getTender)
 export default router;
