@@ -1,5 +1,5 @@
-import validatingFields from './services/gangServices.js';
-import GangModel from './model/gang.js';
+import validatingFields from '../services/gangServices.js';
+import GangModel from '../model/gang.js';
 
 const gangController = {
   addingGang: async (req, res) => {

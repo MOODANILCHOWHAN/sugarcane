@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import gangController from './controller/gangController.js';
+import gangController from '../controller/gangController.js';
 const routerGang = Router();
 
 router.post('/addGang', gangController.addingGang);
