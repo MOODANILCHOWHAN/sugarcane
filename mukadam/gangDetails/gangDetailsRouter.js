@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import gangDetailsController from './gangDetailsController.js';
-const router = Router();
+const routerGangDetails = Router();
 
-router.post('addMember', gangDetailsController.addMembers);
+routerGangDetails.post('addMember', gangDetailsController.addMembers);
 
-export default router;
+export default routerGangDetails;
