@@ -30,7 +30,7 @@ const gangSchema = new Schema(
     ratePerTon: { type: Number, required: true },
     advanceReceived: { type: Number, default: 0 },
     totalTonsWorked: { type: Number, default: 0 },
-    loads:[{type:string}],
+    loads:[{type:String}],
     members: [{ type: Schema.Types.ObjectId, ref: "GangDetails" }],
     tender: { type: Schema.Types.ObjectId, ref: "Tender" },
   },
