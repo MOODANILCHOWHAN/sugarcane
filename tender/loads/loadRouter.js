@@ -1,5 +1,5 @@
 import {Router} from 'express'
 import { Load } from './loadController.js';
-export const loadRouter= Router();
+export default loadRouter= Router();
 
 loadRouter.post('/addLoad',Load.addingLoad);
