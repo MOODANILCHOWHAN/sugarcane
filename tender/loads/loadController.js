@@ -17,7 +17,7 @@ export const LoadControllers={
 
        await Lorry.findByIdAndUpdate(lorry,{$push:{loads:data._id}});
        
-       await Gang.findByIdAndUpdate(gand, {$push : {loads:data._id}});
+       await Gang.findByIdAndUpdate(gang, {$push : {loads:data._id}});
        
        await Tender.findByIdAndUpdate(tender,{$push:{loads:data._id}});
         
