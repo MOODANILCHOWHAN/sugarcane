@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
-import lorrySchema from '../lorry/lorryModel.js';
-import loadSchema from './loadModel.js';
-import gangSchema from "../gangs/model/gang.js";
-import tenderSchema from "../tenders/tenderModel.js"
-export const Load={
+import Lorry from '../lorry/lorryModel.js';
+import Load from './loadModel.js';
+import Gang from "../gangs/model/gang.js";
+import Tender from "../tenders/tenderModel.js"
+
+export const LoadControllers={
  addingLoad: async (req,res)=>{
     const session= await mongoose.startSession()
     try {
@@ -11,14 +12,14 @@ export const Load={
         const { farmerName,gang,lorry,totalTons,kushi,pricePerTon,advance,
             batha,isKushiDistributed,tender } =req.body;
             console.log(req.body)
-        const data=await new loadSchema(req.body);
+        const data=await new Load(req.body);
         data.save({session})
 
-       await lorrySchema.findByIdAndUpdate(lorry,{$push:{loads:data._id}},{session});
+       await Lorry.findByIdAndUpdate(lorry,{$push:{loads:data._id}},{session});
        
-       await gangSchema.findByIdAndUpdate(gand, {$push : {loads:data._id}},{session});
+       await Gang.findByIdAndUpdate(gand, {$push : {loads:data._id}},{session});
        
-       await tenderSchema.findByIdAndUpdate(tender,{$push:{loads:data._id}},{session});
+       await Tender.findByIdAndUpdate(tender,{$push:{loads:data._id}},{session});
         
        await session.commitTransaction();
        
@@ -26,7 +27,7 @@ export const Load={
     } catch (error) {
         console.log(error)
         await session.abortTransaction();
-        return res.status.json({message:'Something went wrong',error:error});
+        return res.status(500).json({message:'Something went wrong',error:error});
     }
  }
 }
