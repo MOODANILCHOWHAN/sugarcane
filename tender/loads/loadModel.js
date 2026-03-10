@@ -27,12 +27,12 @@ const loadSchema = new Schema(
     farmerName: { type: String, required: true },
     gang: { type: Schema.Types.ObjectId, ref: "Gang", required: true },
     lorry: { type: Schema.Types.ObjectId, ref: "Lorry", required: true },
-
+    tender:{type:Schema.Types.ObjectId,ref:'Tender',required:true},
     totalTons: { type: Number, required: true },
     kushi: { type: Number, required: true },
     pricePerTon: { type: Number, required: true },
     advance: { type: Number, required: true },
-
+    batha:{type:Number,required:true},
     isKushiDistributed: { type: Boolean, default: false },
   },
   { timestamps: true }

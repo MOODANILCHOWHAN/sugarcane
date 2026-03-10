@@ -10,6 +10,7 @@ const gangDetailsSchema = new Schema(
     initialAmount: { type: Number, default: 0 },
     expenses: { type: Number, default: 0 },
     gang: { type: Schema.Types.ObjectId, ref: "Gang" },
+    loads:[{type:String}]
   },
   { timestamps: true }
 );

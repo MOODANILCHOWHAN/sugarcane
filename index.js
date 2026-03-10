@@ -39,7 +39,7 @@ import mongoose from "mongoose";
 import tenderRouter from "./tender/tenders/tenderRouter.js";
 import gangRouter from "./tender/gangs/router/gangRouter.js";
 import lorryRouter from "./tender/lorry/router.js";
-
+import loadRouter from "./tender/loads/loadRouter.js";
 dotenv.config();
 
 const app = express();
@@ -55,6 +55,7 @@ mongoose
 app.use("/tender", tenderRouter);
 app.use("/gang", gangRouter);
 app.use("/lorry", lorryRouter);
+app.use("/load",loadRouter)
 
 app.listen(4000, () => {
   console.log("Server running on port 4000");

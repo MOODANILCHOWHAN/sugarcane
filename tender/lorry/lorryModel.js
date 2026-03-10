@@ -22,11 +22,12 @@ const lorrySchema = new Schema(
     name: { type: String, required: true },
     lorryNo: { type: String, required: true },
     phoneNumber: { type: String, required: true },
-
     totalAmount: { type: Number, required: true },
+    pricePerTon:{type:Number,required:true},
     batha: { type: Number, required: true },
     totalTons: { type: Number, default: 0 },
-
+    status:{type:String},
+    loads:[{type:String}],
     tender: { type: Schema.Types.ObjectId, ref: "Tender" },
   },
   { timestamps: true }
