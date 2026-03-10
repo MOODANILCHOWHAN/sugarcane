@@ -7,6 +7,7 @@ export const Load={
         session.startTransaction();
         const { farmerName,gang,lorry,totalTons,kushi,pricePerTon,advance,
             batha,isKushiDistributed,tender } =req.body;
+            console.log(req.body)
         const data=await new loadSchema(req.body);
         data.save({session})
        await lorrySchema.findByIdAndUpdate(lorry._id,data._id,session);
@@ -15,6 +16,7 @@ export const Load={
         await session.commitTransaction();
        return res.status.json({message:'load added sucessfully.'})
     } catch (error) {
+        console.log(error)
         await session.abortTransaction();
         return res.status.json({message:'Something went wrong',error:error});
     }
