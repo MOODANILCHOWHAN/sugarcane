@@ -24,7 +24,7 @@ const { Schema } = mongoose;
 
 const loadSchema = new Schema(
   {
-    farmerName: { type: String, required: true },
+    farmerName: { type: String, required: true ,index:true},
     gang: { type: Schema.Types.ObjectId, ref: "Gang", required: true },
     lorry: { type: Schema.Types.ObjectId, ref: "Lorry", required: true },
     tender:{type:Schema.Types.ObjectId,ref:'Tender',required:true},
@@ -37,5 +37,10 @@ const loadSchema = new Schema(
   },
   { timestamps: true }
 );
+
+loadSchema.index({farmerName:1});
+loadSchema.index({gang:1});
+loadSchema.index({lorry:1});
+loadSchema.index({tender:1});
 
 export default mongoose.model("Load", loadSchema);
