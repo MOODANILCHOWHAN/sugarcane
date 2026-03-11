@@ -15,9 +15,17 @@ export const LoadControllers={
         const data=await new Load(req.body);
         data.save()
 
-       await Lorry.findByIdAndUpdate(lorry,{$push:{loads:data._id}});
+       await Lorry.findByIdAndUpdate(lorry,
+        {
+            $push:{loads:data._id},
+            $inc:{totalTons:totalTons}
+        }
+        );
        
-       await Gang.findByIdAndUpdate(gang, {$push : {loads:data._id}});
+       await Gang.findByIdAndUpdate(gang, {
+        $push : {loads:data._id},
+        $inc:{totalTonsWorked:totalTons}
+    });
        
        await Tender.findByIdAndUpdate(tender,{$push:{loads:data._id}});
         
@@ -107,6 +115,30 @@ export const LoadControllers={
         return res.status(200).json({data:data});
     } catch (error) {
         return res.status(500).send({message:"Something went wrong"});
+    }
+ },
+ deleteLoad:async (req,res)=>{
+    try {
+        const id=req.params.id;
+        const data= await Load.findByIdAndUpdate(id,{
+            $set:{isDeleted:true}
+        });
+        if(!data){
+            res.status(404).send({message:"Load is not found."})
+        }
+        await Tender.findByIdAndUpdate(tender,{
+            $pull :{loads:id}
+        });
+        await Lorry.findByIdAndUpdate(lorry,{
+            $pull :{loads:id}
+        });
+        await Gang.findByIdAndUpdate(gang,{
+            $pull:{load:id}
+        });
+
+        res.status(200).json({message:"Load deleted sucessfully"})
+    } catch (error) {
+        res.status(500).send({message:"Something went wrong."})
     }
  }
 }

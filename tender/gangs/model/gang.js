@@ -36,5 +36,7 @@ const gangSchema = new Schema(
   },
   { timestamps: true }
 );
+// setting the virtual field
+
 
 export default mongoose.model("Gang", gangSchema);

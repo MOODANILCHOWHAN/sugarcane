@@ -33,4 +33,11 @@ const lorrySchema = new Schema(
   { timestamps: true }
 );
 
+// setting the virtual field
+// lorrySchema.virtual("totalAmount").get(function(){
+//   return this.totalTons * this.pricePerTon
+// })
+// // enabling virtual in output
+// lorrySchema.set("toJSON",{virtuals:true});
+// lorrySchema.set("toObject",{virtuals:true});
 export default mongoose.model("Lorry", lorrySchema);

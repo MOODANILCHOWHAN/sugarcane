@@ -34,6 +34,7 @@ const loadSchema = new Schema(
     advance: { type: Number, required: true },
     batha:{type:Number,required:true},
     isKushiDistributed: { type: Boolean, default: false },
+    isDeleted:{type:Boolena,default:false}
   },
   { timestamps: true }
 );
